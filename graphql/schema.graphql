@@ -1,0 +1,94 @@
+type Move {
+  id: ID!
+  roundId: ID
+  gameId: ID!
+  playerId: ID!
+  points: Int
+  time: Float
+}
+
+input MoveInput {
+  roundId: ID
+  gameId: ID!
+  playerId: ID!
+  points: Int
+  time: Float
+}
+
+input SubmitScoreInput {
+  gameId: ID!
+  roundId: ID
+  playerId: ID!
+  moves: [MoveInput]
+  scores: [ScoreInput]
+}
+
+input ScoreInput {
+  type: ScoreType!
+  points: Int
+  time: Float
+}
+
+enum ScoreType {
+  POINTS
+  TIME
+}
+
+type Query {
+  scores(
+    gameId: ID!
+    playerId: ID!
+    timeframes: [Timeframe]!
+    window: Int
+    pageSize: Int
+    sort: SortDirection
+    cursor: String
+  ): ScoreResultConnection
+}
+
+enum Timeframe {
+  DAILY
+  WEEKLY
+  MONTHLY
+  YEARLY
+  ALL_TIME
+}
+
+enum SortDirection {
+  ASC
+  DESC
+}
+
+type ScoreResultConnection {
+  edges: [ScoreResultEdge]
+  pageInfo: PageInfo
+}
+
+type ScoreResultEdge {
+  node: ScoreResult
+  cursor: String
+}
+
+type ScoreResult {
+  playerId: ID!
+  rank: Int
+  scores: [Score]
+  timeframes: [Timeframe]
+}
+
+type Score {
+  type: ScoreType!
+  points: Int
+  time: Float
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Mutation {
+  submitScore(input: SubmitScoreInput): Boolean
+}

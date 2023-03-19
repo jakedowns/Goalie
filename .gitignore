@@ -13,3 +13,6 @@ Cargo.lock
 .env
 
 .history
+
+# ignore the database file
+sqlite.db
