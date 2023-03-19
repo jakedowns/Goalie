@@ -36,9 +36,15 @@ To create a performant GraphQL server in Rust, you can follow these steps:
 
 3.  Add required dependencies: Open the `Cargo.toml` file in the project directory and add the necessary dependencies for building a GraphQL server. Some popular crates to use include `actix-web`, `async-graphql`, and `sqlx`. Example:
 
-    tomlCopy code
+```toml
+[dependencies]
 
-    `[dependencies] actix-web = "4.0.0-beta.8" async-graphql = "3.0.14" async-graphql-actix-web = "3.0.14" sqlx = { version = "0.5", features = ["postgres", "runtime-tokio-rustls"] } tokio = { version = "1", features = ["full"] }`
+actix-web = "4.0.0-beta.8"
+async-graphql = "3.0.14"
+async-graphql-actix-web = "3.0.14"
+sqlx = { version = "0.5", features = ["postgres", "runtime-tokio-rustls"] }
+tokio = { version = "1", features = ["full"] }
+```
 
 4.  Implement the data model: Create Rust structs and database functions to represent the data model and interact with the database. You can use the `sqlx` crate to establish a connection and perform database queries.
 
