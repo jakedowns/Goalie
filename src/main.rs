@@ -4,6 +4,7 @@ use actix_web::{web, App, HttpServer};
 mod auth;
 mod game;
 mod admin;
+mod score;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -12,6 +13,8 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(|| {
         App::new()
+            // Add a basic home route that serves static/index.html
+            .service(actix_files::Files::new("/", "static").index_file("index.html"))
             .service(auth::register)
             .service(auth::login)
             .service(auth::forgot_password)
@@ -24,6 +27,9 @@ async fn main() -> std::io::Result<()> {
             .service(admin::games_list)
             .service(admin::hide_user_from_scoreboards)
             .service(admin::reports)
+            // Add score routes to the server
+            .service(score::submit_score)
+            .service(score::get_score)
     })
     .bind("127.0.0.1:8080")?
     .run()

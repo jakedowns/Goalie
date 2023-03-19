@@ -62,3 +62,13 @@ tokio = { version = "1", features = ["full"] }
 
 
 Following these steps will help you create a performant GraphQL server in Rust, which can handle a high load of requests per second.
+
+
+# Building / Running
+
+`cargo install diesel_cli --no-default-features --features sqlite`
+
+# AI Pull Request Requests:
+
+1.  `touch sqlite.db` #TODO put into generate.sh and remove from readme TODO list
+

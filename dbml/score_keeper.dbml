@@ -5,8 +5,8 @@ Table auth_user {
   password_hash varchar [not null]
   verified boolean [default: false]
   remember_me boolean [default: false]
-  created_at timestamp [default: now()]
-  updated_at timestamp [default: now()]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
   deleted_at timestamp [null]
 }
 
@@ -14,24 +14,24 @@ Table games {
   id UUID [pk]
   name varchar [not null]
   creator_id UUID [ref: > auth_user.id, not null]
-  created_at timestamp [default: now()]
-  updated_at timestamp [default: now()]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
   deleted_at timestamp [null]
 }
 
 Table rounds {
   id UUID [pk]
   game_id UUID [ref: > games.id, not null]
-  created_at timestamp [default: now()]
-  updated_at timestamp [default: now()]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
   deleted_at timestamp [null]
 }
 
 Table moves {
   id UUID [pk]
   round_id UUID [ref: > rounds.id, not null]
-  created_at timestamp [default: now()]
-  updated_at timestamp [default: now()]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
   deleted_at timestamp [null]
 }
 
@@ -39,8 +39,8 @@ Table points {
   id UUID [pk]
   move_id UUID [ref: > moves.id, not null]
   value int [not null]
-  created_at timestamp [default: now()]
-  updated_at timestamp [default: now()]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
   deleted_at timestamp [null]
 }
 
@@ -48,8 +48,8 @@ Table times {
   id UUID [pk]
   move_id UUID [ref: > moves.id, not null]
   value timestamp [not null]
-  created_at timestamp [default: now()]
-  updated_at timestamp [default: now()]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
   deleted_at timestamp [null]
 }
 
@@ -58,7 +58,23 @@ Table password_reset_requests {
   user_id UUID [ref: > auth_user.id, not null]
   token varchar [unique, not null]
   expires_at timestamp [not null]
-  created_at timestamp [default: now()]
-  updated_at timestamp [default: now()]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
   deleted_at timestamp [null]
+}
+
+Table move_scores {
+  id UUID [pk]
+  move_id UUID [ref: > moves.id, not null]
+  value int [not null]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
+  deleted_at timestamp [null]
+}
+
+Table hidden_users {
+  id UUID [pk]
+  user_id UUID [ref: > auth_user.id, not null]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
 }

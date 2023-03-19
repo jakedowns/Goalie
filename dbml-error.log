@@ -1,0 +1,108 @@
+2023-03-19T05:00:02.683Z
+SyntaxError: You have a syntax error at "score_keeper.dbml" line 8 column 34. Expected "-", "`", "false", "null", "true", [0-9], comment, string, or whitespace but "n" found.
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at exportHandler (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:27)
+    at Object.dbml2sql (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/index.js:27:23)
+    at Object.<anonymous> (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/bin/dbml2sql.js:4:19)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+
+ROOT_ERROR:
+SyntaxError: Expected "-", "`", "false", "null", "true", [0-9], comment, string, or whitespace but "n" found.
+    at peg$buildStructuredError (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/dbmlParser.js:1169:12)
+    at Object.peg$parse [as parse] (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/dbmlParser.js:8170:11)
+    at Function.parseDBMLToJSON (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:54:37)
+    at Function.parse (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:81:32)
+    at Object._export [as export] (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/export/index.js:15:37)
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:69
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at exportHandler (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:27)
+{"start":{"offset":249,"line":8,"column":34},"end":{"offset":250,"line":8,"column":35}}
+
+2023-03-19T05:02:47.559Z
+SyntaxError: You have a syntax error at "score_keeper.dbml" line 8 column 34. Expected "-", "`", "false", "null", "true", [0-9], comment, string, or whitespace but "n" found.
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at exportHandler (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:27)
+    at Object.dbml2sql (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/index.js:27:23)
+    at Object.<anonymous> (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/bin/dbml2sql.js:4:19)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+
+ROOT_ERROR:
+SyntaxError: Expected "-", "`", "false", "null", "true", [0-9], comment, string, or whitespace but "n" found.
+    at peg$buildStructuredError (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/dbmlParser.js:1169:12)
+    at Object.peg$parse [as parse] (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/dbmlParser.js:8170:11)
+    at Function.parseDBMLToJSON (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:54:37)
+    at Function.parse (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:81:32)
+    at Object._export [as export] (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/export/index.js:15:37)
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:69
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at exportHandler (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:27)
+{"start":{"offset":249,"line":8,"column":34},"end":{"offset":250,"line":8,"column":35}}
+
+2023-03-19T05:03:04.936Z
+SyntaxError: You have a syntax error at "score_keeper.dbml" line 8 column 34. Expected "-", "`", "false", "null", "true", [0-9], comment, string, or whitespace but "n" found.
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at exportHandler (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:27)
+    at Object.dbml2sql (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/index.js:27:23)
+    at Object.<anonymous> (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/bin/dbml2sql.js:4:19)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+
+ROOT_ERROR:
+SyntaxError: Expected "-", "`", "false", "null", "true", [0-9], comment, string, or whitespace but "n" found.
+    at peg$buildStructuredError (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/dbmlParser.js:1169:12)
+    at Object.peg$parse [as parse] (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/dbmlParser.js:8170:11)
+    at Function.parseDBMLToJSON (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:54:37)
+    at Function.parse (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:81:32)
+    at Object._export [as export] (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/export/index.js:15:37)
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:69
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at exportHandler (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:27)
+{"start":{"offset":249,"line":8,"column":34},"end":{"offset":250,"line":8,"column":35}}
+
+2023-03-19T05:06:17.754Z
+SyntaxError: You have a syntax error at "score_keeper.dbml" line 70 column 34. Expected "-", "`", "false", "null", "true", [0-9], comment, string, or whitespace but "n" found.
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at exportHandler (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:27)
+    at Object.dbml2sql (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/index.js:27:23)
+    at Object.<anonymous> (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/bin/dbml2sql.js:4:19)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+
+ROOT_ERROR:
+SyntaxError: Expected "-", "`", "false", "null", "true", [0-9], comment, string, or whitespace but "n" found.
+    at peg$buildStructuredError (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/dbmlParser.js:1169:12)
+    at Object.peg$parse [as parse] (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/dbmlParser.js:8170:11)
+    at Function.parseDBMLToJSON (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:54:37)
+    at Function.parse (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:81:32)
+    at Object._export [as export] (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/export/index.js:15:37)
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:69
+    at /root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at exportHandler (/root/.nvm/versions/node/v14.16.1/lib/node_modules/@dbml/cli/lib/cli/export.js:41:27)
+{"start":{"offset":1781,"line":70,"column":34},"end":{"offset":1782,"line":70,"column":35}}
+
