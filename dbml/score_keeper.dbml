@@ -1,4 +1,4 @@
-Table auth_user {
+Table users {
   id UUID [pk]
   username varchar [unique, not null]
   email varchar [unique, not null]
@@ -13,7 +13,7 @@ Table auth_user {
 Table games {
   id UUID [pk]
   name varchar [not null]
-  creator_id UUID [ref: > auth_user.id, not null]
+  creator_id UUID [ref: > users.id, not null]
   created_at timestamp [default: `now()`]
   updated_at timestamp [default: `now()`]
   deleted_at timestamp [null]
@@ -55,7 +55,7 @@ Table times {
 
 Table password_reset_requests {
   id UUID [pk]
-  user_id UUID [ref: > auth_user.id, not null]
+  user_id UUID [ref: > users.id, not null]
   token varchar [unique, not null]
   expires_at timestamp [not null]
   created_at timestamp [default: `now()`]
@@ -74,7 +74,7 @@ Table move_scores {
 
 Table hidden_users {
   id UUID [pk]
-  user_id UUID [ref: > auth_user.id, not null]
+  user_id UUID [ref: > users.id, not null]
   created_at timestamp [default: `now()`]
   updated_at timestamp [default: `now()`]
 }

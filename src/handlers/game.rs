@@ -3,6 +3,8 @@ use diesel::prelude::*;
 use crate::models::{NewGame, Game, Score};
 use crate::schema::games::dsl::*;
 use crate::schema::scores::dsl::*;
+use crate::db::establish_connection;
+use diesel::QueryResult;
 
 fn establish_connection_and_execute<T>(operation: T) -> QueryResult<usize>
 where

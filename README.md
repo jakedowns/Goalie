@@ -72,3 +72,4 @@ Following these steps will help you create a performant GraphQL server in Rust, 
 
 1.  `touch sqlite.db` #TODO put into generate.sh and remove from readme TODO list
 
+1. `rustup toolchain install nightly` & `rustup override set nightly`

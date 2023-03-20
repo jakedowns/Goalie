@@ -2,8 +2,12 @@ use diesel::prelude::*;
 use diesel::r2d2::{self, ConnectionManager};
 use graphql_client::{GraphQLQuery, Response};
 use std::collections::HashMap;
+use serde_json::json;
 
 type Pool = r2d2::Pool<ConnectionManager<SqliteConnection>>;
+
+use diesel_migrations::embed_migrations;
+embed_migrations!();
 
 fn create_pool() -> Pool {
     // Set up an in-memory SQLite database for testing.
@@ -21,7 +25,7 @@ fn create_pool() -> Pool {
 #[derive(GraphQLQuery)]
 #[graphql(
     schema_path = "graphql/schema.graphql",
-    query_path = "tests/resolver_test.graphql",
+    query_path = "tests/resolver_test.rs",
     response_derives = "Debug"
 )]
 struct TestQuery;

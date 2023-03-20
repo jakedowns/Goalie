@@ -2,6 +2,7 @@ use crate::models::score::{Score, NewScore};
 use crate::models::game::Game;
 use crate::schema::score::dsl::*;
 use crate::schema::game::dsl::*;
+use crate::db::establish_connection;
 use diesel::prelude::*;
 use juniper::{FieldResult};
 
