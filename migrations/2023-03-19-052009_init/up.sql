@@ -5,19 +5,22 @@
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE `users` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `username` varchar(255) UNIQUE NOT NULL,
   `email` varchar(255) UNIQUE NOT NULL,
   `password_hash` varchar(255) NOT NULL,
   `verified` boolean DEFAULT false,
   `remember_me` boolean DEFAULT false,
+  `verification_token` varchar(255) UNIQUE,
+  `password_reset_token` varchar(255) UNIQUE,
+  `last_logged_in_at` timestamp DEFAULT null,
   `created_at` timestamp DEFAULT (now()),
   `updated_at` timestamp DEFAULT (now()),
   `deleted_at` timestamp
 );
 
 CREATE TABLE `games` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `name` varchar(255) NOT NULL,
   `creator_id` int NOT NULL,
   `created_at` timestamp DEFAULT (now()),
@@ -26,7 +29,7 @@ CREATE TABLE `games` (
 );
 
 CREATE TABLE `rounds` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `game_id` int NOT NULL,
   `created_at` timestamp DEFAULT (now()),
   `updated_at` timestamp DEFAULT (now()),
@@ -34,7 +37,7 @@ CREATE TABLE `rounds` (
 );
 
 CREATE TABLE `moves` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `player_id` int NOT NULL,
   `round_id` int,
   `game_id` int NOT NULL,
@@ -47,7 +50,7 @@ CREATE TABLE `moves` (
 );
 
 CREATE TABLE `points` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `move_id` int NOT NULL,
   `value` int NOT NULL,
   `created_at` timestamp DEFAULT (now()),
@@ -56,7 +59,7 @@ CREATE TABLE `points` (
 );
 
 CREATE TABLE `times` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `move_id` int NOT NULL,
   `value` timestamp NOT NULL,
   `created_at` timestamp DEFAULT (now()),
@@ -65,7 +68,7 @@ CREATE TABLE `times` (
 );
 
 CREATE TABLE `password_reset_requests` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `user_id` int NOT NULL,
   `token` varchar(255) UNIQUE NOT NULL,
   `expires_at` timestamp NOT NULL,
@@ -76,7 +79,7 @@ CREATE TABLE `password_reset_requests` (
 
 /* pre-defined scores for move types */
 CREATE TABLE `move_scores` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `move_type` int NOT NULL,
   `value` int NOT NULL,
   `created_at` timestamp DEFAULT (now()),
@@ -85,7 +88,7 @@ CREATE TABLE `move_scores` (
 );
 
 CREATE TABLE `hidden_users` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `user_id` int NOT NULL,
   `created_at` timestamp DEFAULT (now()),
   `updated_at` timestamp DEFAULT (now())

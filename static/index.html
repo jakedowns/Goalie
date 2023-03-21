@@ -8,17 +8,100 @@
 <body>
   <!-- Vue app wrapper -->
   <div id="app">
-    <!-- Your Vue components and content go here -->
+
+    <!-- Form for inserting a new user with username, email, and password fields -->
+    <form @submit.prevent="createUser">
+      <label for="userName">Username:</label>
+      <input type="text" id="userName" v-model="userName" placeholder="Username">
+    
+      <label for="userEmail">Email:</label>
+      <input type="email" id="userEmail" v-model="userEmail" placeholder="Email">
+    
+      <label for="password">Password:</label>
+      <input type="password" id="password" v-model="password" placeholder="Password">
+    
+      <button type="submit">Create User</button>
+    </form>
+    
+    <!-- Form for inserting a new game with a name field -->
+    <form @submit.prevent="addGame">
+      <label for="gameName">Game Name:</label>
+      <input type="text" id="gameName" v-model="gameName" placeholder="My New Game">
+      <button type="submit">Add Game</button>
+    </form>
+
+    <!-- Display the list of games -->
+    <ul>
+      <li v-for="game in games" :key="game.id">
+        {{ game.name }}
+      </li>
+    </ul>
+    
   </div>
   <!-- End of Vue app wrapper -->
   <script>
     new Vue({
       el: '#app',
       data: {
-        // Your data properties go here
+        userName: '',
+        userEmail: '',
+        password: '',
+        
+        gameName: '',
+        games: []
+      },
+      mounted(){
+        this.getGamesList();
       },
       methods: {
-        // Your methods go here
+        // addGame method that posts the game to the server /game/add
+        addGame() {
+          fetch('/game/add', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: this.gameName })
+          })
+          .then(response => response.json())
+          .then(data => {
+            this.games.push(data);
+            this.gameName = '';
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        },
+
+        getGamesList() {
+          // Fetch the games list from the server /game/list
+          fetch('/game/list')
+            .then(response => response.json())
+            .then(data => {
+              this.games = data;
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+        },
+
+        createUser() {
+          fetch('/user/create', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: this.userName })
+          })
+          .then(response => response.json())
+          .then(data => {
+            this.users.push(data);
+            this.userName = '';
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        },
       }
     });
   </script>

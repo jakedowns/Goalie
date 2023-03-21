@@ -2,7 +2,7 @@
 
 diesel::table! {
     games (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         name -> Text,
         creator_id -> Integer,
         created_at -> Nullable<Timestamp>,
@@ -13,7 +13,7 @@ diesel::table! {
 
 diesel::table! {
     hidden_users (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         user_id -> Integer,
         created_at -> Nullable<Timestamp>,
         updated_at -> Nullable<Timestamp>,
@@ -22,7 +22,7 @@ diesel::table! {
 
 diesel::table! {
     move_scores (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         move_type -> Integer,
         value -> Integer,
         created_at -> Nullable<Timestamp>,
@@ -33,7 +33,7 @@ diesel::table! {
 
 diesel::table! {
     moves (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         player_id -> Integer,
         round_id -> Nullable<Integer>,
         game_id -> Integer,
@@ -48,7 +48,7 @@ diesel::table! {
 
 diesel::table! {
     password_reset_requests (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         user_id -> Integer,
         token -> Text,
         expires_at -> Timestamp,
@@ -60,7 +60,7 @@ diesel::table! {
 
 diesel::table! {
     points (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         move_id -> Integer,
         value -> Integer,
         created_at -> Nullable<Timestamp>,
@@ -71,7 +71,7 @@ diesel::table! {
 
 diesel::table! {
     rounds (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         game_id -> Integer,
         created_at -> Nullable<Timestamp>,
         updated_at -> Nullable<Timestamp>,
@@ -81,7 +81,7 @@ diesel::table! {
 
 diesel::table! {
     times (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         move_id -> Integer,
         value -> Timestamp,
         created_at -> Nullable<Timestamp>,
@@ -92,12 +92,15 @@ diesel::table! {
 
 diesel::table! {
     users (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         username -> Text,
         email -> Text,
         password_hash -> Text,
         verified -> Nullable<Bool>,
         remember_me -> Nullable<Bool>,
+        verification_token -> Nullable<Text>,
+        password_reset_token -> Nullable<Text>,
+        last_logged_in_at -> Nullable<Timestamp>,
         created_at -> Nullable<Timestamp>,
         updated_at -> Nullable<Timestamp>,
         deleted_at -> Nullable<Timestamp>,

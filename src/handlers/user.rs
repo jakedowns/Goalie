@@ -1,13 +1,18 @@
 use crate::models::{NewUser, User};
 use crate::schema::users;
-use diesel::SqliteConnection;
+use diesel::r2d2::{ConnectionManager, PooledConnection};
+use r2d2_sqlite::SqliteConnectionManager;
 use diesel::prelude::*;
+use std::ops::DerefMut;
+
 
 // user_operations web resource /users route post to create_user
 use actix_web::{web, HttpResponse, Responder, Scope};
 use serde::Deserialize;
-use crate::db::DbConn;
+use crate::db::{DbConn, establish_connection};
 use diesel::QueryResult;
+use diesel::ExpressionMethods;
+use diesel::QueryDsl;
 
 #[derive(Deserialize)]
 pub struct CreateUserRequest {
@@ -25,6 +30,7 @@ pub async fn create_user_route(
     pool: web::Data<DbConn>,
     user_data: web::Json<CreateUserRequest>,
 ) -> impl Responder {
+    //let mut conn = establish_connection().expect("Failed to get a connection from the pool");
     let mut conn = pool.get().expect("Failed to get a connection from the pool");
 
     use bcrypt::{hash, DEFAULT_COST};
@@ -44,13 +50,13 @@ pub async fn create_user_route(
     }
 }
 
+pub fn create_user(conn: &mut PooledConnection<SqliteConnectionManager>, user: NewUser) -> QueryResult<User> {
 
-pub fn create_user(conn: &mut SqliteConnection, user: NewUser) -> QueryResult<User> {
     use self::users::dsl::*;
 
     diesel::insert_into(users)
         .values(&user)
-        .execute(conn)?;
+        .execute(conn.deref_mut())?;
 
-    users.order(users::id.desc()).first(conn)
+    users.order(id.desc()).first(conn)
 }
